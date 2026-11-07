@@ -1,0 +1,14 @@
+const sg=document.getElementById("score-grid");
+sg.innerHTML=MOCK.scores.map(s=>`<div class="card score-card"><div class="score-top"><span>${s.label}</span><span class="pill-count">ESG</span></div><div class="score-number">${s.value}<span class="muted" style="font-size:14px">/100</span></div><div class="trend ${s.dir}">↗ ${s.trend} <span class="muted">${s.note}</span></div></div>`).join("");
+document.getElementById("risk-overview").innerHTML=Object.entries(MOCK.riskCounts).map(([k,v])=>`<div class="risk-row"><div class="risk-label">${badge(k)}<span>${k} severity</span></div><span class="risk-count">${v}</span></div>`).join("");
+document.getElementById("priority-findings").innerHTML=MOCK.findings.map(f=>`<div class="finding-row"><div class="row-title">${escapeHtml(f.title)}</div><div class="row-meta">${badge(f.severity)}<span class="small muted">${escapeHtml(f.category)}</span><span class="small muted">• ${escapeHtml(f.source)}</span></div></div>`).join("");
+document.getElementById("dashboard-recommendations").innerHTML=MOCK.recommendations.slice(0,3).map(r=>`<div class="recommendation-row"><div class="row-title">${escapeHtml(r.title)}</div><div class="small muted" style="margin-top:5px">${escapeHtml(r.action)}</div></div>`).join("");
+function chart(){
+const el=document.getElementById("performance-chart"), vals={Environmental:[70,74,77,80,82,85],Social:[68,69,70,72,74,76],Governance:[78,80,81,84,86,88]};
+const W=760,H=230,p={l:35,r:15,t:15,b:28}, all=[...Object.values(vals).flat()], min=60,max=92;
+const x=i=>p.l+i*(W-p.l-p.r)/5,y=v=>p.t+(max-v)*(H-p.t-p.b)/(max-min);
+let svg=`<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none"><g stroke="#edf0ee" stroke-width="1">`;
+for(let i=0;i<5;i++){let yy=p.t+i*(H-p.t-p.b)/4;svg+=`<line x1="${p.l}" y1="${yy}" x2="${W-p.r}" y2="${yy}"/>`};svg+=`</g>`;
+for(const [name,a] of Object.entries(vals)){const pts=a.map((v,i)=>`${x(i)},${y(v)}`).join(" ");svg+=`<polyline points="${pts}" fill="none" stroke="${name==="Environmental"?"#2b8c69":name==="Social"?"#5c84a8":"#a1814b"}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>`;a.forEach((v,i)=>svg+=`<circle cx="${x(i)}" cy="${y(v)}" r="3.5" fill="white" stroke="${name==="Environmental"?"#2b8c69":name==="Social"?"#5c84a8":"#a1814b"}" stroke-width="2"/>`)};
+svg+=`<g fill="#89938e" font-size="9">${[0,1,2,3,4,5].map((_,i)=>`<text x="${x(i)}" y="${H-7}" text-anchor="middle">Q${i+1}</text>`).join("")}</g></svg><div class="legend" style="margin-top:-2px"><span><i class="green-dot"></i>Environmental</span><span><i class="blue-dot"></i>Social</span><span><i class="amber-dot"></i>Governance</span></div>`;el.innerHTML=svg}
+chart();

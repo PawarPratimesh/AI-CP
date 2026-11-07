@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Code Intelligence — ESG Platform</title>
+  <meta name="description" content="Analyse GitHub pull requests for software inefficiencies that increase compute, network or CI/CD resource usage. Get transparent Green Code Scores and AI-powered recommendations.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <script src="js/auth.js"></script>
+  <style>
+    /* Green Code page enhancements */
+    .gc-account-card:hover  { border-color:#2b8c69 !important; background:#f6fdf9 !important; }
+    .gc-repo-card:hover     { border-color:#2b8c69 !important; background:#f6fdf9 !important; }
+    .gc-pr-row:hover td     { background:#f6fdf9 !important; }
+    .gc-finding             { transition:box-shadow .15s; }
+    .gc-finding:hover       { box-shadow:0 4px 14px rgba(18,60,40,.07); }
+    .active-filter          { background:#e8f5ee !important; color:#176645 !important; border-color:#b5ddc8 !important; }
+    .kpi-strip .kpi         { background:#fafcfb; border:1px solid #e4e9e6; border-radius:10px; padding:15px 16px; }
+    .kpi-label              { font-size:11px; color:#78838e; margin-bottom:6px; }
+    .kpi-value              { font-size:26px; font-weight:800; color:#1a3a2d; }
+    .kpi-note               { font-size:10px; color:#8a9490; margin-top:4px; }
+    .change-card            { background:#fff; }
+    .change-head            { padding:13px 15px; }
+  </style>
+</head>
+<body data-page="green-code">
+
+<div id="app-shell"></div>
+<main class="page-shell">
+  <div id="topbar"></div>
+
+  <section class="page-content" id="page-content">
+    <div class="page-heading">
+      <div>
+        <div class="eyebrow">GREEN CODE INTELLIGENCE</div>
+        <h1>Green Code</h1>
+        <p>Connect a GitHub repository, select a pull request, and get a transparent Green Code Score with AI-powered sustainability recommendations.</p>
+      </div>
+      <button class="btn btn-primary" id="page-primary-action">+ Connect GitHub</button>
+    </div>
+
+    <div id="page-app"></div>
+  </section>
+</main>
+
+<script src="js/mock-data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/api.js"></script>
+<script src="js/green-code.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+pymupdf
+pydantic
+python-multipart
+pytest
+httpx
+openai          # used for both OpenAI and Gemini (via Gemini's OpenAI-compatible endpoint)
+python-dotenv

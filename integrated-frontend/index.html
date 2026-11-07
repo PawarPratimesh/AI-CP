@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="js/auth.js"></script>
+  <title>ESG Dashboard</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body data-page="dashboard">
+  <div id="app-shell"></div>
+  <main class="page-shell">
+    <div id="topbar"></div>
+    <section class="page-content">
+      <div class="page-heading">
+        <div><div class="eyebrow">OVERVIEW</div><h1>ESG Dashboard</h1><p>Monitor your organization's sustainability performance, risks and recommendations.</p></div>
+        <button class="btn btn-secondary" data-toast="Dashboard refreshed"><span class="icon">↻</span> Refresh</button>
+      </div>
+      <div class="score-grid" id="score-grid"></div>
+      <div class="dashboard-grid">
+        <section class="card chart-card span-2"><div class="section-head"><div><h2>ESG Performance</h2><p>Score trend across the reporting period</p></div><span class="mini-select">FY 2025–26⌄</span></div><div id="performance-chart" class="line-chart"></div></section>
+        <section class="card"><div class="section-head"><div><h2>Risk Overview</h2><p>Current open findings</p></div><span class="status-dot green"></span></div><div id="risk-overview" class="risk-overview"></div></section>
+      </div>
+      <div class="dashboard-grid lower">
+        <section class="card"><div class="section-head"><div><h2>Priority Findings</h2><p>Items requiring attention</p></div><a class="text-link" href="risks.html">View all</a></div><div id="priority-findings"></div></section>
+        <section class="card"><div class="section-head"><div><h2>AI Recommendations</h2><p>Prioritized actions from platform analysis</p></div><a class="text-link" href="insights.html">View insights</a></div><div id="dashboard-recommendations"></div></section>
+      </div>
+    </section>
+  </main>
+  <script src="js/mock-data.js"></script><script src="js/common.js"></script><script src="js/dashboard.js"></script>
+</body>
+</html>

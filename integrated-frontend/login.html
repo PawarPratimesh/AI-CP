@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In — ESG Intelligence</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/login.css">
+  <script src="js/auth.js"></script>
+</head>
+<body class="login-page">
+  <main class="login-layout">
+    <section class="login-brand" aria-label="ESG Intelligence">
+      <div class="brand-mark">E</div>
+      <p class="eyebrow">ESG INTELLIGENCE</p>
+      <h1>Sustainability, in focus.</h1>
+      <p class="login-copy">Enterprise sustainability intelligence for your organization.</p>
+      <div class="login-accent"><span></span><span></span><span></span></div>
+    </section>
+    <section class="login-form-wrap">
+      <form class="login-form" id="login-form">
+        <div class="eyebrow">WORKSPACE ACCESS</div>
+        <h2>Welcome back</h2>
+        <p class="muted">Sign in to ESG Intelligence.</p>
+        <label for="login-user">Username</label>
+        <input id="login-user" name="username" autocomplete="username" required>
+        <label for="login-password">Password</label>
+        <input id="login-password" name="password" type="password" autocomplete="current-password" required>
+        <div class="login-error" id="login-error" role="alert" aria-live="polite"></div>
+        <button class="btn btn-primary login-submit" type="submit">Sign in</button>
+        <p class="demo-hint">Demo access: <strong>admin</strong> / <strong>esg2026</strong></p>
+      </form>
+    </section>
+  </main>
+</body>
+</html>
