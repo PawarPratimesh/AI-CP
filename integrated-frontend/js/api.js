@@ -1,6 +1,6 @@
 window.ESGApi=(function(){
 var BASE=function(){return(localStorage.getItem("esg_api_base")||"http://localhost:8000").replace(/\/$/,"");};
-var DOC_BASE=function(){return BASE();};  // Documents API runs on same backend as Green API
+var DOC_BASE=function(){return(localStorage.getItem("esg_doc_api_base")||"http://localhost:8001").replace(/\/$/,"");};
 async function request(path,opts,baseUrl){
   var url=(baseUrl||BASE())+path;var res;
   try{res=await fetch(url,opts||{});}catch(err){throw new Error("Network error: "+err.message);}
@@ -31,6 +31,57 @@ function greenGetPR(repoId,prNum){return request("/green/github/repositories/"+r
 function greenAnalyze(repositoryId,prNumber){return request("/green/analysis/analyze",j({repository_id:repositoryId,pr_number:prNumber}));}
 function greenGetResults(prId){return request("/green/analysis/results/"+prId);}
 function greenListScores(){return request("/green/analysis/scores");}
+/* ── Cloud & Carbon Module (Member 4) ── */
+function cloudCarbonHealth(){return request("/api/cloud-carbon/health",{},DOC_BASE());}
+function cloudCarbonUpload(file){
+  var fd=new FormData();
+  fd.append("file",file);
+  return request("/api/cloud-carbon/upload",{method:"POST",body:fd},DOC_BASE());
+}
+function cloudCarbonPreview(uploadId){
+  return request("/api/cloud-carbon/preview/"+uploadId,{},DOC_BASE());
+}
+function cloudCarbonConfirmMapping(uploadId,mapping){
+  return request("/api/cloud-carbon/confirm-mapping/"+uploadId,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({mapping:mapping})
+  },DOC_BASE());
+}
+function cloudCarbonAnomalyDetection(uploadId,opts){
+  return request("/api/cloud-carbon/anomaly-detection/"+uploadId,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(opts||{})
+  },DOC_BASE());
+}
+function cloudCarbonEstimateEmissions(uploadId,opts){
+  return request("/api/cloud-carbon/estimate-emissions/"+uploadId,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify(opts||{})
+  },DOC_BASE());
+}
+function cloudCarbonAnalyze(uploadId,anomalyOpts,emissionsOpts){
+  return request("/api/cloud-carbon/analyze/"+uploadId,{
+    method:"POST",
+    headers:{"Content-Type":"application/json"},
+    body:JSON.stringify({
+      anomaly_req: anomalyOpts||null,
+      emissions_req: emissionsOpts||null
+    })
+  },DOC_BASE());
+}
+function cloudCarbonGetAnalysis(uploadId){
+  return request("/api/cloud-carbon/analysis/"+uploadId,{},DOC_BASE());
+}
+function cloudCarbonGetRecommendations(uploadId){
+  return request("/api/cloud-carbon/recommendations/"+uploadId,{},DOC_BASE());
+}
+function cloudCarbonGenerateRecommendations(uploadId,forceRuleBased){
+  var q=forceRuleBased?"?force_rule_based=true":"";
+  return request("/api/cloud-carbon/recommendations/"+uploadId+q,{method:"POST"},DOC_BASE());
+}
 return{
   base:BASE,docBase:DOC_BASE,
   health:health,fullAnalysis:fullAnalysis,
@@ -38,6 +89,14 @@ return{
   greenHealth:greenHealth,greenConnect:greenConnect,greenListAccounts:greenListAccounts,
   greenDeleteAccount:greenDeleteAccount,greenListRepos:greenListRepos,greenListBranches:greenListBranches,
   greenListPRs:greenListPRs,greenGetPR:greenGetPR,greenAnalyze:greenAnalyze,
-  greenGetResults:greenGetResults,greenListScores:greenListScores
+  greenGetResults:greenGetResults,greenListScores:greenListScores,
+  cloudCarbonHealth:cloudCarbonHealth,cloudCarbonUpload:cloudCarbonUpload,
+  cloudCarbonPreview:cloudCarbonPreview,cloudCarbonConfirmMapping:cloudCarbonConfirmMapping,
+  cloudCarbonAnomalyDetection:cloudCarbonAnomalyDetection,
+  cloudCarbonEstimateEmissions:cloudCarbonEstimateEmissions,
+  cloudCarbonAnalyze:cloudCarbonAnalyze,
+  cloudCarbonGetAnalysis:cloudCarbonGetAnalysis,
+  cloudCarbonGetRecommendations:cloudCarbonGetRecommendations,
+  cloudCarbonGenerateRecommendations:cloudCarbonGenerateRecommendations
 };
 })();

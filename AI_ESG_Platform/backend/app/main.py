@@ -1,12 +1,13 @@
 from app.routers import documents
 from app.green.router import router as green_router
+from app.cloud_carbon.router import router as cloud_carbon_router
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(
     title="AI ESG Sustainability Platform",
-    description="Document Intelligence & Green Software Intelligence for ESG Analysis",
-    version="1.1.0"
+    description="Document Intelligence, Green Software & Cloud Carbon Intelligence for ESG Analysis",
+    version="1.2.0"
 )
 
 app.add_middleware(
@@ -31,6 +32,7 @@ app.add_middleware(
 
 app.include_router(documents.router)
 app.include_router(green_router)
+app.include_router(cloud_carbon_router)
 
 @app.get("/")
 def home():

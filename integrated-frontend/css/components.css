@@ -3,3 +3,40 @@
 .kpi{padding:15px 16px;background:#fff;border:1px solid #e5eae7;border-radius:10px}.kpi-label{font-size:10px;color:#7b868d;text-transform:uppercase;letter-spacing:.05em}.kpi-value{font-size:24px;font-weight:850;margin:7px 0 2px}.kpi-note{font-size:10px;color:#7b868d}
 .change-card{border:1px solid #e3e9e6;border-radius:10px;background:#fff;margin-bottom:12px;overflow:hidden}.change-head{padding:13px 15px;display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #edf0ee}.change-body{display:grid;grid-template-columns:1fr 1fr}.policy-pane{padding:14px;background:#fcfdfd}.policy-pane+.policy-pane{border-left:1px solid #e6ebe8}.pane-label{font-size:9px;font-weight:800;letter-spacing:.08em;color:#8a959a;margin-bottom:7px}.policy-text{font-size:12px;line-height:1.65;color:#35443e}.policy-text mark{background:#fff1a8;padding:1px 3px;border-radius:3px}.change-foot{padding:11px 15px;background:#fbfcfc;border-top:1px solid #edf0ee}.legend{display:flex;gap:12px;align-items:center;flex-wrap:wrap;font-size:10px;color:#6f7c77}.legend i{width:7px;height:7px;border-radius:50%;display:inline-block;margin-right:4px}.green-dot{background:#41a87e}.red-dot{background:#d86666}.amber-dot{background:#d59b37}.blue-dot{background:#578ab6}
 @media(max-width:700px){.change-body{grid-template-columns:1fr}.policy-pane+.policy-pane{border-left:0;border-top:1px solid #e6ebe8}.kpi-strip{grid-template-columns:1fr 1fr}}
+
+/* ─── Cloud & Carbon Module Styles (Member 4 Phase 1) ─── */
+.kpi-strip-6{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:18px}
+@media(max-width:1300px){.kpi-strip-6{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){.kpi-strip-6{grid-template-columns:1fr 1fr}}
+@media(max-width:440px){.kpi-strip-6{grid-template-columns:1fr}}
+
+.chart-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:980px){.chart-grid{grid-template-columns:1fr}}
+
+.file-preview-card{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;background:#fff;border:1px solid #dfe5e2;border-radius:8px;margin-top:10px}
+.file-preview-card .file-info{display:flex;align-items:center;gap:10px}
+.file-preview-card .file-icon{width:32px;height:32px;border-radius:6px;background:#edf8f2;color:#287954;display:grid;place-items:center;font-weight:800;font-size:11px}
+
+.flow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media(max-width:1050px){.flow-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.flow-grid{grid-template-columns:1fr}}
+.flow-step{background:#fafcfb;border:1px solid #e3e9e6;border-radius:10px;padding:14px;position:relative}
+.flow-step .step-num{display:inline-block;width:20px;height:20px;border-radius:50%;background:#153f32;color:white;font-size:10px;font-weight:800;text-align:center;line-height:20px;margin-bottom:8px}
+.flow-step h3{font-size:12px;font-weight:750;margin-bottom:6px;color:#24322e}
+.flow-step p{font-size:11px;line-height:1.55;color:#67747e;margin:0}
+
+.mini-bar-wrap{display:flex;align-items:center;gap:8px}
+.mini-bar{width:60px;height:6px;background:#edf0ee;border-radius:3px;overflow:hidden}
+.mini-bar-fill{height:100%;border-radius:3px;background:#2b8c69}
+.mini-bar-fill.warn{background:#d59b37}
+.mini-bar-fill.danger{background:#d86666}
+
+.sortable-th{cursor:pointer;user-select:none;transition:background .15s}
+.sortable-th:hover{background:#f1f6f3!important;color:#18533f}
+.sort-indicator{font-size:9px;margin-left:4px;color:#879590}
+
+.sample-chip{padding:4px 9px;border:1px solid #d5dfdb;background:#fff;border-radius:6px;font-size:10px;font-weight:600;color:#455550;cursor:pointer;transition:.15s}
+.sample-chip:hover{background:#edf6f1;border-color:#2b8c69;color:#1b5644}
+
+.chart-unavailable{height:180px;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fafcfb;border:1px dashed #e1e7e4;border-radius:8px;color:#87948e;font-size:11px;text-align:center;padding:20px}
+

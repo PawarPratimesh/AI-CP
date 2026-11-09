@@ -5,7 +5,10 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-import fitz
+try:
+    import pymupdf as fitz
+except ImportError:
+    import fitz
 
 
 MIN_USEFUL_CHARS = 40

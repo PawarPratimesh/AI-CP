@@ -1,0 +1,9 @@
+datetime,hostname,service,region,cpu_usage,ram_usage,disk_used,disk_capacity
+2026-11-08 00:00:00,srv-staging-k8s-01,BareMetal-32C,on-prem-dc1,14.2,28.0,420,1000
+2026-11-08 04:00:00,srv-staging-k8s-01,BareMetal-32C,on-prem-dc1,12.5,27.5,420,1000
+2026-11-08 08:00:00,srv-staging-k8s-01,BareMetal-32C,on-prem-dc1,18.0,31.0,422,1000
+2026-11-08 12:00:00,srv-staging-k8s-01,BareMetal-32C,on-prem-dc1,22.4,34.0,425,1000
+2026-11-08 16:00:00,srv-staging-k8s-01,BareMetal-32C,on-prem-dc1,19.0,32.0,426,1000
+2026-11-08 20:00:00,srv-staging-k8s-01,BareMetal-32C,on-prem-dc1,15.5,29.0,427,1000
+2026-11-08 23:59:59,srv-staging-k8s-01,BareMetal-32C,on-prem-dc1,13.0,28.0,428,1000
+

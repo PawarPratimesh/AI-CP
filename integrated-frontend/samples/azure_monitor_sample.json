@@ -1,0 +1,59 @@
+[
+  {
+    "time": "2026-11-08T00:00:00Z",
+    "vmName": "vm-datapipeline-eu",
+    "resourceType": "Standard_D4s_v3",
+    "location": "westeurope",
+    "percentage CPU": 71.4,
+    "memory utilization": 89.4
+  },
+  {
+    "time": "2026-11-08T04:00:00Z",
+    "vmName": "vm-datapipeline-eu",
+    "resourceType": "Standard_D4s_v3",
+    "location": "westeurope",
+    "percentage CPU": 68.0,
+    "memory utilization": 88.0
+  },
+  {
+    "time": "2026-11-08T08:00:00Z",
+    "vmName": "vm-datapipeline-eu",
+    "resourceType": "Standard_D4s_v3",
+    "location": "westeurope",
+    "percentage CPU": 74.2,
+    "memory utilization": 91.2
+  },
+  {
+    "time": "2026-11-08T12:00:00Z",
+    "vmName": "vm-datapipeline-eu",
+    "resourceType": "Standard_D4s_v3",
+    "location": "westeurope",
+    "percentage CPU": 81.5,
+    "memory utilization": 93.4
+  },
+  {
+    "time": "2026-11-08T16:00:00Z",
+    "vmName": "vm-datapipeline-eu",
+    "resourceType": "Standard_D4s_v3",
+    "location": "westeurope",
+    "percentage CPU": 77.0,
+    "memory utilization": 90.0
+  },
+  {
+    "time": "2026-11-08T20:00:00Z",
+    "vmName": "vm-datapipeline-eu",
+    "resourceType": "Standard_D4s_v3",
+    "location": "westeurope",
+    "percentage CPU": 70.1,
+    "memory utilization": 87.5
+  },
+  {
+    "time": "2026-11-09T00:00:00Z",
+    "vmName": "vm-datapipeline-eu",
+    "resourceType": "Standard_D4s_v3",
+    "location": "westeurope",
+    "percentage CPU": 66.8,
+    "memory utilization": 85.0
+  }
+]
+

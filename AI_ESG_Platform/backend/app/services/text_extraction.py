@@ -1,8 +1,12 @@
 try:
-    import fitz  # PyMuPDF (also importable as pymupdf)
+    import pymupdf as fitz
     _FITZ_AVAILABLE = True
 except ImportError:
-    _FITZ_AVAILABLE = False
+    try:
+        import fitz
+        _FITZ_AVAILABLE = True
+    except ImportError:
+        _FITZ_AVAILABLE = False
 
 
 def extract_text_from_pdf(file_path):
